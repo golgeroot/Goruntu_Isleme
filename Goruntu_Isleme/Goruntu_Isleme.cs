@@ -7,9 +7,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Goruntu_Isleme
 {
-    public partial class Form1 : Form
+    public partial class Goruntu_Isleme : Form
     {
-        public Form1()
+        public Goruntu_Isleme()
         {
             InitializeComponent();
         }
@@ -484,6 +484,84 @@ namespace Goruntu_Isleme
             pictureBox2.Image = CikisResmi;
             return CikisResmi;
         }
+        public Bitmap Tasima() // Taşıma
+        {
+            Color OkunanRenk;
+            Bitmap GirisResmi, CikisResmi;
+            GirisResmi = new Bitmap(pictureBox1.Image);
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+
+            double x2 = 0, y2 = 0;
+
+            //Taşıma mesafelerini atıyor
+            int Tx = 100;
+            int Ty = 60;
+
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+
+                    x2 = x1 + Tx;
+                    y2 = y1 + Ty;
+
+                    if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                        CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                }
+            }
+            pictureBox2.Image = CikisResmi;
+            return CikisResmi;
+        }
+        public Bitmap Aynalama()
+        {
+            Color OkunanRenk;
+            Bitmap GirisResmi, CikisResmi;
+            GirisResmi = new Bitmap(pictureBox1.Image);
+
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYusekligi = GirisResmi.Height;
+
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYusekligi);
+
+            double Aci = Convert.ToDouble(tAynalama.Text);
+            double RadyanAci = Aci * 2 * Math.PI / 360;
+
+            double x2 = 0, y2 = 0;
+
+            //Resim merkezini buluyor. Resmin merkezi etrafında döndürülecek
+            int x0 = ResimGenisligi / 2;
+            int y0 = ResimYusekligi / 2;
+
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYusekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+
+                    //----A-Orta dikey eksen etrafında aynalama ----------------
+                    //x2 = Convert.ToInt16(-x1 + 2 * x0); 
+                    //y2 = Convert.ToInt16(y1);
+
+
+                    //----B-Orta yatay eksen etrafında aynalama ----------------
+                    //x2 = Convert.ToInt16(x1);
+                    //y2 = Convert.ToInt16(-y1 + 2 *y0);
+
+                    //----C-Ortadan geçen 45 açılı çizgi etrafında aynalama----------
+                    double Delta = (x1 - x0) * Math.Sin(RadyanAci) - (y1 - y0) * Math.Cos(RadyanAci);
+                    x2 = Convert.ToInt16(x1 + 2 * Delta * (-Math.Sin(RadyanAci)));
+                    y2 = Convert.ToInt16(y1 + 2 * Delta * (Math.Cos(RadyanAci)));
+                    if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYusekligi)
+                        CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                }
+            }
+            pictureBox2.Image = CikisResmi;
+            return CikisResmi;
+
+        }
         private void BParlaklik_Click(object sender, EventArgs e)
         {
             if (pictureBox2.Image == null)
@@ -641,6 +719,16 @@ namespace Goruntu_Isleme
             pictureBox2.Refresh();
             pictureBox2.Image = null;
             pictureBox2.Image = CikisResmi;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Tasima();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (tAynalama.Text != "") { Aynalama(); } else { MessageBox.Show("Aynalama Değeri Boş olmamalı", "Eksik Bilgi !",MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
 
         private void BSifirla_Click(object sender, EventArgs e)

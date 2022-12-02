@@ -1,6 +1,6 @@
 ﻿namespace Goruntu_Isleme
 {
-    partial class Form1
+    partial class Goruntu_Isleme
     {
         /// <summary>
         /// Required designer variable.
@@ -77,6 +77,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tAynalama = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -87,6 +91,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -99,7 +104,7 @@
             this.yapayZekaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1536, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1748, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -135,9 +140,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BDosyaAc,
             this.BKaydet});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1536, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1748, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -147,7 +152,7 @@
             this.BDosyaAc.Image = global::Goruntu_Isleme.Properties.Resources.icons8_ftp_32px;
             this.BDosyaAc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BDosyaAc.Name = "BDosyaAc";
-            this.BDosyaAc.Size = new System.Drawing.Size(29, 28);
+            this.BDosyaAc.Size = new System.Drawing.Size(29, 24);
             this.BDosyaAc.Text = "Resim Aç";
             this.BDosyaAc.Click += new System.EventHandler(this.BDosyaAc_Click);
             // 
@@ -574,11 +579,53 @@
             this.label9.TabIndex = 42;
             this.label9.Text = "X1";
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Turquoise;
+            this.button1.Location = new System.Drawing.Point(14, 9);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 28);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Resmi Taşı";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.tAynalama);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Location = new System.Drawing.Point(1314, 72);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(362, 208);
+            this.panel4.TabIndex = 43;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Turquoise;
+            this.button2.Location = new System.Drawing.Point(14, 41);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(132, 28);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Aynalama";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tAynalama
+            // 
+            this.tAynalama.Location = new System.Drawing.Point(153, 44);
+            this.tAynalama.Name = "tAynalama";
+            this.tAynalama.Size = new System.Drawing.Size(192, 22);
+            this.tAynalama.TabIndex = 25;
+            // 
+            // F1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1536, 671);
+            this.ClientSize = new System.Drawing.Size(1748, 671);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -597,7 +644,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "F1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -614,6 +661,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -670,6 +719,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox tAynalama;
+        private System.Windows.Forms.Button button2;
     }
 }
 
