@@ -723,12 +723,13 @@ namespace Goruntu_Isleme
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Tasima();
+            if (pictureBox1.Image != null) { Tasima(); } else { MessageBox.Show("Resim 1 Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (tAynalama.Text != "") { Aynalama(); } else { MessageBox.Show("Aynalama Değeri Boş olmamalı", "Eksik Bilgi !",MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            if (tAynalama.Text != "" && pictureBox1.Image != null) { Aynalama(); } else { MessageBox.Show("Resim 1 ve Aynalama Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
 
         private void BSifirla_Click(object sender, EventArgs e)

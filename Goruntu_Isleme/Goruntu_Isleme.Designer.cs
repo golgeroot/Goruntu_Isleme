@@ -77,10 +77,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bResimTasi = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.tAynalama = new System.Windows.Forms.TextBox();
+            this.bAynalama = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -579,39 +579,27 @@
             this.label9.TabIndex = 42;
             this.label9.Text = "X1";
             // 
-            // button1
+            // bResimTasi
             // 
-            this.button1.BackColor = System.Drawing.Color.Turquoise;
-            this.button1.Location = new System.Drawing.Point(14, 9);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 28);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Resmi Taşı";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bResimTasi.BackColor = System.Drawing.Color.Turquoise;
+            this.bResimTasi.Location = new System.Drawing.Point(14, 9);
+            this.bResimTasi.Margin = new System.Windows.Forms.Padding(4);
+            this.bResimTasi.Name = "bResimTasi";
+            this.bResimTasi.Size = new System.Drawing.Size(132, 28);
+            this.bResimTasi.TabIndex = 12;
+            this.bResimTasi.Text = "Resmi Taşı";
+            this.bResimTasi.UseVisualStyleBackColor = false;
+            this.bResimTasi.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.tAynalama);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.bAynalama);
+            this.panel4.Controls.Add(this.bResimTasi);
             this.panel4.Location = new System.Drawing.Point(1314, 72);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(362, 208);
             this.panel4.TabIndex = 43;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Turquoise;
-            this.button2.Location = new System.Drawing.Point(14, 41);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 28);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Aynalama";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tAynalama
             // 
@@ -620,7 +608,19 @@
             this.tAynalama.Size = new System.Drawing.Size(192, 22);
             this.tAynalama.TabIndex = 25;
             // 
-            // F1
+            // bAynalama
+            // 
+            this.bAynalama.BackColor = System.Drawing.Color.Turquoise;
+            this.bAynalama.Location = new System.Drawing.Point(14, 41);
+            this.bAynalama.Margin = new System.Windows.Forms.Padding(4);
+            this.bAynalama.Name = "bAynalama";
+            this.bAynalama.Size = new System.Drawing.Size(132, 28);
+            this.bAynalama.TabIndex = 13;
+            this.bAynalama.Text = "Aynalama";
+            this.bAynalama.UseVisualStyleBackColor = false;
+            this.bAynalama.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Goruntu_Isleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -644,7 +644,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "F1";
+            this.Name = "Goruntu_Isleme";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -719,10 +719,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bResimTasi;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox tAynalama;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bAynalama;
     }
 }
 
