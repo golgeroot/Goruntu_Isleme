@@ -86,6 +86,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tKucultOran = new System.Windows.Forms.TextBox();
+            this.bKucultmeInterpolasyon = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -603,6 +604,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.bKucultmeInterpolasyon);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.tKucultOran);
             this.panel4.Controls.Add(this.label10);
@@ -685,6 +687,17 @@
             this.tKucultOran.Name = "tKucultOran";
             this.tKucultOran.Size = new System.Drawing.Size(71, 20);
             this.tKucultOran.TabIndex = 43;
+            // 
+            // bKucultmeInterpolasyon
+            // 
+            this.bKucultmeInterpolasyon.BackColor = System.Drawing.Color.Turquoise;
+            this.bKucultmeInterpolasyon.Location = new System.Drawing.Point(10, 123);
+            this.bKucultmeInterpolasyon.Name = "bKucultmeInterpolasyon";
+            this.bKucultmeInterpolasyon.Size = new System.Drawing.Size(129, 23);
+            this.bKucultmeInterpolasyon.TabIndex = 45;
+            this.bKucultmeInterpolasyon.Text = "Küçültme İnterpolasyon";
+            this.bKucultmeInterpolasyon.UseVisualStyleBackColor = false;
+            this.bKucultmeInterpolasyon.Click += new System.EventHandler(this.bKucultmeInterpolasyon_Click);
             // 
             // Goruntu_Isleme
             // 
@@ -793,6 +806,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tKucultOran;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button bKucultmeInterpolasyon;
     }
 }
 

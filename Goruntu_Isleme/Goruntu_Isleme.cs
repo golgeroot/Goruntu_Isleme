@@ -642,8 +642,9 @@ namespace Goruntu_Isleme
 
         }
 
+
         /// <summary>
-        /// // Küçültme-Pixel Değiştirme Metodu
+        ///  Küçültme-Pixel Değiştirme Metodu
         // Giriş resmini X ve Y yönüne birer pixel atlayarak okursak ve okunan değerleri yeni resimde sırayla yerleştirirse
         // 1/2 küçültme sağlamış oluruz. Döngüdeki x ve y artış deeri küçütltme katsayısı olacaktır.
         /// </summary>
@@ -677,6 +678,62 @@ namespace Goruntu_Isleme
             pictureBox2.Image = CikisResmi;
             return CikisResmi;
 
+        }
+
+        /// <summary>
+        /// komşu pikseller arasında istatistiksel bir örnekleme yaparak (örneğin
+        /// ortalamasını alarak) oluşturulacak pikselin değerini belirler.
+        /// </summary>
+        /// <returns></returns>
+        public Bitmap Kucultme_Interpolasyon()
+        {
+            Color OkunanRenk,DonusenRenk;
+            Bitmap GirisResmi, CikisResmi;
+            int R = 0, G = 0, B = 0;
+
+            GirisResmi = new Bitmap(pictureBox1.Image);
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int x2 = 0, y2 = 0; // Çıkış resminin x ve y si olacak
+            int KucultmeKatSayisi = 2;
+
+            for (int x1 = 0; x1 < ResimGenisligi; x1 = x1 + KucultmeKatSayisi)
+            {
+                y2 = 0;
+                for (int y1 = 0; y1 < ResimYuksekligi; y1 = y1 + KucultmeKatSayisi)
+                {
+                    // x ve y de ilerlerken her atlanan pixelleri okuyacak ve ortalama değerini alacak
+                    R = 0; G = 0; B = 0;
+                    try // resim sınırının dışına çıkıldığında hata vermesin diye
+                    {
+                        for (int i = 0; i < KucultmeKatSayisi; i++)
+                        {
+                            for (int j = 0; j < KucultmeKatSayisi; j++)
+                            {
+                                OkunanRenk = GirisResmi.GetPixel(x1 + i, y1 + j);
+
+                                R = R + OkunanRenk.R;
+                                G = G + OkunanRenk.G;
+                                B = B + OkunanRenk.B;
+                            }
+                        }
+                    }
+                    catch { }
+                    // Renk kanallarının ortalamasını alıyor
+                    R = R / (KucultmeKatSayisi * KucultmeKatSayisi);
+                    G = G / (KucultmeKatSayisi * KucultmeKatSayisi);
+                    B =B / (KucultmeKatSayisi * KucultmeKatSayisi);
+
+                    DonusenRenk = Color.FromArgb(R, G, B);
+                    CikisResmi.SetPixel(x2, y2, DonusenRenk);
+                    y2++;
+                }
+                x2++;
+            }
+            pictureBox2.Image = CikisResmi;
+            return CikisResmi;
         }
         private void BParlaklik_Click(object sender, EventArgs e)
         {
@@ -850,14 +907,17 @@ namespace Goruntu_Isleme
 
         private void BEgKaydir_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null) { Egme_Kaydirma(); } else { MessageBox.Show("Resim  Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            if (pictureBox1.Image != null) { Egme_Kaydirma(); } else { MessageBox.Show("Resim 1 Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
 
         }
-
         private void bKucultmeDegistirme_Click(object sender, EventArgs e)
         {
             if (tKucultOran.Text != "" && pictureBox1.Image != null && int.Parse(tKucultOran.Text) >= 1 && int.Parse(tKucultOran.Text) <= 10) { Kucultme_DegistirmeMetodu(); } else { MessageBox.Show("Resim 1 ve 10 / ? Değeri Boş veya Geçersiz olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
 
+        }
+        private void bKucultmeInterpolasyon_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null) { Kucultme_Interpolasyon(); } else { MessageBox.Show("Resim 1 Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
 
         private void BSifirla_Click(object sender, EventArgs e)
