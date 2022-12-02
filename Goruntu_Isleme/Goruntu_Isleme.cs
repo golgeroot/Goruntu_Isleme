@@ -641,6 +641,43 @@ namespace Goruntu_Isleme
             }
 
         }
+
+        /// <summary>
+        /// // Küçültme-Pixel Değiştirme Metodu
+        // Giriş resmini X ve Y yönüne birer pixel atlayarak okursak ve okunan değerleri yeni resimde sırayla yerleştirirse
+        // 1/2 küçültme sağlamış oluruz. Döngüdeki x ve y artış deeri küçütltme katsayısı olacaktır.
+        /// </summary>
+        /// <returns></returns>
+        public Bitmap Kucultme_DegistirmeMetodu()
+        {
+            Color OkunanRenk;
+            Bitmap GirisResmi, CikisResmi;
+            GirisResmi = new Bitmap(pictureBox1.Image);
+
+
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+
+            int x2 = 0, y2 = 0; // Çıkış resminin x ve y si olacak
+            int KucultmeKatSayisi = int.Parse(tKucultOran.Text);
+
+            for (int x1 = 0; x1 < ResimGenisligi; x1 = x1 + KucultmeKatSayisi)
+            {
+                y2 = 0;
+                for (int y1 = 0; y1 < ResimYuksekligi; y1 = y1 + KucultmeKatSayisi)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+
+                    CikisResmi.SetPixel(x2, y2, OkunanRenk);
+                    y2++;
+                }
+                x2++;
+            }
+            pictureBox2.Image = CikisResmi;
+            return CikisResmi;
+
+        }
         private void BParlaklik_Click(object sender, EventArgs e)
         {
             if (pictureBox2.Image == null)
@@ -817,9 +854,16 @@ namespace Goruntu_Isleme
 
         }
 
+        private void bKucultmeDegistirme_Click(object sender, EventArgs e)
+        {
+            if (tKucultOran.Text != "" && pictureBox1.Image != null && int.Parse(tKucultOran.Text) >= 1 && int.Parse(tKucultOran.Text) <= 10) { Kucultme_DegistirmeMetodu(); } else { MessageBox.Show("Resim 1 ve 10 / ? Değeri Boş veya Geçersiz olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
+        }
+
         private void BSifirla_Click(object sender, EventArgs e)
         {
-            pictureBox2.Image = pictureBox1.Image;
+            pictureBox1.Image = null;
+            pictureBox2.Image = null;
         }
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
