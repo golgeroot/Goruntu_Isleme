@@ -81,6 +81,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tAynalama = new System.Windows.Forms.TextBox();
             this.bAynalama = new System.Windows.Forms.Button();
+            this.BEgKaydir = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -593,6 +594,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.BEgKaydir);
             this.panel4.Controls.Add(this.tAynalama);
             this.panel4.Controls.Add(this.bAynalama);
             this.panel4.Controls.Add(this.bResimTasi);
@@ -619,6 +621,18 @@
             this.bAynalama.Text = "Aynalama";
             this.bAynalama.UseVisualStyleBackColor = false;
             this.bAynalama.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // BEgKaydir
+            // 
+            this.BEgKaydir.BackColor = System.Drawing.Color.Turquoise;
+            this.BEgKaydir.Location = new System.Drawing.Point(14, 78);
+            this.BEgKaydir.Margin = new System.Windows.Forms.Padding(4);
+            this.BEgKaydir.Name = "BEgKaydir";
+            this.BEgKaydir.Size = new System.Drawing.Size(132, 28);
+            this.BEgKaydir.TabIndex = 26;
+            this.BEgKaydir.Text = "Eğme Kaydırma";
+            this.BEgKaydir.UseVisualStyleBackColor = false;
+            this.BEgKaydir.Click += new System.EventHandler(this.BEgKaydir_Click);
             // 
             // Goruntu_Isleme
             // 
@@ -723,6 +737,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox tAynalama;
         private System.Windows.Forms.Button bAynalama;
+        private System.Windows.Forms.Button BEgKaydir;
     }
 }
 

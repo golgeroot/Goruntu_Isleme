@@ -515,7 +515,7 @@ namespace Goruntu_Isleme
             pictureBox2.Image = CikisResmi;
             return CikisResmi;
         }
-        public Bitmap Aynalama()
+        public Bitmap Aynalama() // Ayna bakış vs.
         {
             Color OkunanRenk;
             Bitmap GirisResmi, CikisResmi;
@@ -560,6 +560,85 @@ namespace Goruntu_Isleme
             }
             pictureBox2.Image = CikisResmi;
             return CikisResmi;
+
+        }
+        public Bitmap Egme_Kaydirma() // Resmin bir kısmını sabit tutup kalanı eğme\kaydırma
+        {
+            // Aynı resmi birden fazla kez eğmesi için yapılan kontrol if else bloğunda. 
+            if (pictureBox2.Image == null)
+            {
+
+                Color OkunanRenk;
+                Bitmap GirisResmi, CikisResmi;
+                GirisResmi = new Bitmap(pictureBox1.Image);
+                int ResimGenisligi = GirisResmi.Width;
+                int ResimYuksekligi = GirisResmi.Height;
+                CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+                //Taşıma mesafelerini atıyor. 
+                double EgmeKatsayisi = 0.2;
+                double x2 = 0, y2 = 0;
+                for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+                {
+                    for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                    {
+                        OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                        // +X ekseni yönünde
+                        //x2 = x1 + EgmeKatsayisi * y1;
+                        //y2 = y1;
+                        // -X ekseni yönünde
+                        //x2 = x1 - EgmeKatsayisi * y1;
+                        //y2 = y1;
+                        // +Y ekseni yönünde
+                        //x2 = x1;
+                        //y2 = EgmeKatsayisi * x1 + y1;
+                        // -Y ekseni yönünde
+                        x2 = x1;
+                        y2 = -EgmeKatsayisi * x1 + y1;
+
+                        if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                            CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                    }
+                }
+                pictureBox2.Image = CikisResmi;
+                return CikisResmi;
+            }
+            else
+            {
+
+                Color OkunanRenk;
+                Bitmap GirisResmi, CikisResmi;
+                GirisResmi = new Bitmap(pictureBox2.Image);
+                int ResimGenisligi = GirisResmi.Width;
+                int ResimYuksekligi = GirisResmi.Height;
+                CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+                //Taşıma mesafelerini atıyor. 
+                double EgmeKatsayisi = 0.2;
+                double x2 = 0, y2 = 0;
+                for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+                {
+                    for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                    {
+                        OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                        // +X ekseni yönünde
+                        //x2 = x1 + EgmeKatsayisi * y1;
+                        //y2 = y1;
+                        // -X ekseni yönünde
+                        //x2 = x1 - EgmeKatsayisi * y1;
+                        //y2 = y1;
+                        // +Y ekseni yönünde
+                        //x2 = x1;
+                        //y2 = EgmeKatsayisi * x1 + y1;
+                        // -Y ekseni yönünde
+                        x2 = x1;
+                        y2 = -EgmeKatsayisi * x1 + y1;
+
+                        if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                            CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                    }
+                }
+                pictureBox2.Image = CikisResmi;
+                return CikisResmi;
+            }
 
         }
         private void BParlaklik_Click(object sender, EventArgs e)
@@ -730,6 +809,12 @@ namespace Goruntu_Isleme
         private void button2_Click(object sender, EventArgs e)
         {
             if (tAynalama.Text != "" && pictureBox1.Image != null) { Aynalama(); } else { MessageBox.Show("Resim 1 ve Aynalama Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+        }
+
+        private void BEgKaydir_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null) { Egme_Kaydirma(); } else { MessageBox.Show("Resim  Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
         }
 
         private void BSifirla_Click(object sender, EventArgs e)
