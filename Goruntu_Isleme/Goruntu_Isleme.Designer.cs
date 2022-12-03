@@ -93,6 +93,38 @@
             this.bAynalama = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.bPerspektif = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_x1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_y1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_x2 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txt_y2 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_x3 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txt_y3 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_x4 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt_y4 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.TXTYY4 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.TXTXX4 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.TXTYY3 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.TXTXX3 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.TXTYY2 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.TXTXX2 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.TXTYY1 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.TXTXX1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -763,22 +795,342 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label21);
+            this.panel5.Controls.Add(this.TXTYY4);
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.TXTXX4);
+            this.panel5.Controls.Add(this.label23);
+            this.panel5.Controls.Add(this.TXTYY3);
+            this.panel5.Controls.Add(this.label24);
+            this.panel5.Controls.Add(this.TXTXX3);
+            this.panel5.Controls.Add(this.label25);
+            this.panel5.Controls.Add(this.TXTYY2);
+            this.panel5.Controls.Add(this.label26);
+            this.panel5.Controls.Add(this.TXTXX2);
+            this.panel5.Controls.Add(this.label27);
+            this.panel5.Controls.Add(this.TXTYY1);
+            this.panel5.Controls.Add(this.label28);
+            this.panel5.Controls.Add(this.TXTXX1);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Controls.Add(this.txt_y4);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.txt_x4);
+            this.panel5.Controls.Add(this.label18);
+            this.panel5.Controls.Add(this.txt_y3);
+            this.panel5.Controls.Add(this.label17);
+            this.panel5.Controls.Add(this.txt_x3);
+            this.panel5.Controls.Add(this.label16);
+            this.panel5.Controls.Add(this.txt_y2);
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.txt_x2);
+            this.panel5.Controls.Add(this.label14);
+            this.panel5.Controls.Add(this.txt_y1);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Controls.Add(this.txt_x1);
             this.panel5.Controls.Add(this.bPerspektif);
             this.panel5.Location = new System.Drawing.Point(938, 52);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(214, 189);
+            this.panel5.Size = new System.Drawing.Size(142, 192);
             this.panel5.TabIndex = 44;
             // 
             // bPerspektif
             // 
             this.bPerspektif.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.bPerspektif.Location = new System.Drawing.Point(3, 9);
+            this.bPerspektif.Location = new System.Drawing.Point(4, 169);
             this.bPerspektif.Name = "bPerspektif";
             this.bPerspektif.Size = new System.Drawing.Size(129, 23);
             this.bPerspektif.TabIndex = 13;
             this.bPerspektif.Text = "Perpektif";
             this.bPerspektif.UseVisualStyleBackColor = false;
             this.bPerspektif.Click += new System.EventHandler(this.bPerspektif_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1, 6);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 13);
+            this.label13.TabIndex = 50;
+            this.label13.Text = "X1";
+            // 
+            // txt_x1
+            // 
+            this.txt_x1.Location = new System.Drawing.Point(25, 1);
+            this.txt_x1.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_x1.Name = "txt_x1";
+            this.txt_x1.Size = new System.Drawing.Size(37, 20);
+            this.txt_x1.TabIndex = 49;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(68, 6);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(20, 13);
+            this.label14.TabIndex = 52;
+            this.label14.Text = "Y1";
+            // 
+            // txt_y1
+            // 
+            this.txt_y1.Location = new System.Drawing.Point(92, 1);
+            this.txt_y1.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_y1.Name = "txt_y1";
+            this.txt_y1.Size = new System.Drawing.Size(37, 20);
+            this.txt_y1.TabIndex = 51;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1, 25);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(20, 13);
+            this.label15.TabIndex = 54;
+            this.label15.Text = "X2";
+            // 
+            // txt_x2
+            // 
+            this.txt_x2.Location = new System.Drawing.Point(25, 22);
+            this.txt_x2.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_x2.Name = "txt_x2";
+            this.txt_x2.Size = new System.Drawing.Size(37, 20);
+            this.txt_x2.TabIndex = 53;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(68, 27);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(20, 13);
+            this.label16.TabIndex = 56;
+            this.label16.Text = "Y2";
+            // 
+            // txt_y2
+            // 
+            this.txt_y2.Location = new System.Drawing.Point(92, 22);
+            this.txt_y2.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_y2.Name = "txt_y2";
+            this.txt_y2.Size = new System.Drawing.Size(37, 20);
+            this.txt_y2.TabIndex = 55;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1, 48);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(20, 13);
+            this.label17.TabIndex = 58;
+            this.label17.Text = "X3";
+            // 
+            // txt_x3
+            // 
+            this.txt_x3.Location = new System.Drawing.Point(25, 43);
+            this.txt_x3.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_x3.Name = "txt_x3";
+            this.txt_x3.Size = new System.Drawing.Size(37, 20);
+            this.txt_x3.TabIndex = 57;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(68, 48);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(20, 13);
+            this.label18.TabIndex = 60;
+            this.label18.Text = "Y3";
+            // 
+            // txt_y3
+            // 
+            this.txt_y3.Location = new System.Drawing.Point(92, 43);
+            this.txt_y3.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_y3.Name = "txt_y3";
+            this.txt_y3.Size = new System.Drawing.Size(37, 20);
+            this.txt_y3.TabIndex = 59;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1, 69);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(20, 13);
+            this.label19.TabIndex = 62;
+            this.label19.Text = "X4";
+            // 
+            // txt_x4
+            // 
+            this.txt_x4.Location = new System.Drawing.Point(25, 64);
+            this.txt_x4.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_x4.Name = "txt_x4";
+            this.txt_x4.Size = new System.Drawing.Size(37, 20);
+            this.txt_x4.TabIndex = 61;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(68, 70);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(20, 13);
+            this.label20.TabIndex = 64;
+            this.label20.Text = "Y4";
+            // 
+            // txt_y4
+            // 
+            this.txt_y4.Location = new System.Drawing.Point(92, 65);
+            this.txt_y4.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_y4.Name = "txt_y4";
+            this.txt_y4.Size = new System.Drawing.Size(37, 20);
+            this.txt_y4.TabIndex = 63;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(68, 153);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(20, 13);
+            this.label21.TabIndex = 80;
+            this.label21.Text = "Y4";
+            // 
+            // TXTYY4
+            // 
+            this.TXTYY4.Location = new System.Drawing.Point(92, 148);
+            this.TXTYY4.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTYY4.Name = "TXTYY4";
+            this.TXTYY4.Size = new System.Drawing.Size(37, 20);
+            this.TXTYY4.TabIndex = 79;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(1, 150);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(20, 13);
+            this.label22.TabIndex = 78;
+            this.label22.Text = "X4";
+            // 
+            // TXTXX4
+            // 
+            this.TXTXX4.Location = new System.Drawing.Point(25, 145);
+            this.TXTXX4.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTXX4.Name = "TXTXX4";
+            this.TXTXX4.Size = new System.Drawing.Size(37, 20);
+            this.TXTXX4.TabIndex = 77;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(68, 131);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(20, 13);
+            this.label23.TabIndex = 76;
+            this.label23.Text = "Y3";
+            // 
+            // TXTYY3
+            // 
+            this.TXTYY3.Location = new System.Drawing.Point(92, 126);
+            this.TXTYY3.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTYY3.Name = "TXTYY3";
+            this.TXTYY3.Size = new System.Drawing.Size(37, 20);
+            this.TXTYY3.TabIndex = 75;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(1, 129);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(20, 13);
+            this.label24.TabIndex = 74;
+            this.label24.Text = "X3";
+            // 
+            // TXTXX3
+            // 
+            this.TXTXX3.Location = new System.Drawing.Point(25, 124);
+            this.TXTXX3.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTXX3.Name = "TXTXX3";
+            this.TXTXX3.Size = new System.Drawing.Size(37, 20);
+            this.TXTXX3.TabIndex = 73;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(68, 110);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(20, 13);
+            this.label25.TabIndex = 72;
+            this.label25.Text = "Y2";
+            // 
+            // TXTYY2
+            // 
+            this.TXTYY2.Location = new System.Drawing.Point(92, 105);
+            this.TXTYY2.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTYY2.Name = "TXTYY2";
+            this.TXTYY2.Size = new System.Drawing.Size(37, 20);
+            this.TXTYY2.TabIndex = 71;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(1, 106);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(20, 13);
+            this.label26.TabIndex = 70;
+            this.label26.Text = "X2";
+            // 
+            // TXTXX2
+            // 
+            this.TXTXX2.Location = new System.Drawing.Point(25, 103);
+            this.TXTXX2.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTXX2.Name = "TXTXX2";
+            this.TXTXX2.Size = new System.Drawing.Size(37, 20);
+            this.TXTXX2.TabIndex = 69;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(68, 89);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(20, 13);
+            this.label27.TabIndex = 68;
+            this.label27.Text = "Y1";
+            // 
+            // TXTYY1
+            // 
+            this.TXTYY1.Location = new System.Drawing.Point(92, 84);
+            this.TXTYY1.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTYY1.Name = "TXTYY1";
+            this.TXTYY1.Size = new System.Drawing.Size(37, 20);
+            this.TXTYY1.TabIndex = 67;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(1, 87);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(20, 13);
+            this.label28.TabIndex = 66;
+            this.label28.Text = "X1";
+            // 
+            // TXTXX1
+            // 
+            this.TXTXX1.Location = new System.Drawing.Point(25, 82);
+            this.TXTXX1.Margin = new System.Windows.Forms.Padding(2);
+            this.TXTXX1.Name = "TXTXX1";
+            this.TXTXX1.Size = new System.Drawing.Size(37, 20);
+            this.TXTXX1.TabIndex = 65;
             // 
             // Goruntu_Isleme
             // 
@@ -815,6 +1167,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -887,6 +1240,38 @@
         private System.Windows.Forms.Button bAliasDondur;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button bPerspektif;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox TXTYY4;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox TXTXX4;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox TXTYY3;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox TXTXX3;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox TXTYY2;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox TXTXX2;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox TXTYY1;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox TXTXX1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txt_y4;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txt_x4;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txt_y3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txt_x3;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txt_y2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txt_x2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt_y1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txt_x1;
     }
 }
 
