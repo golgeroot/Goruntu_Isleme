@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Collections; // Arraylist in kütüphanesi
+using System.Collections;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Goruntu_Isleme
@@ -645,8 +645,8 @@ namespace Goruntu_Isleme
 
         /// <summary>
         ///  Küçültme-Pixel Değiştirme Metodu
-        // Giriş resmini X ve Y yönüne birer pixel atlayarak okursak ve okunan değerleri yeni resimde sırayla yerleştirirse
-        // 1/2 küçültme sağlamış oluruz. Döngüdeki x ve y artış deeri küçütltme katsayısı olacaktır.
+        /// Giriş resmini X ve Y yönüne birer pixel atlayarak okursak ve okunan değerleri yeni resimde sırayla yerleştirirse
+        /// 1/2 küçültme sağlamış oluruz. Döngüdeki x ve y artış deeri küçütltme katsayısı olacaktır.
         /// </summary>
         /// <returns></returns>
         public Bitmap Kucultme_DegistirmeMetodu()
@@ -687,7 +687,7 @@ namespace Goruntu_Isleme
         /// <returns></returns>
         public Bitmap Kucultme_Interpolasyon()
         {
-            Color OkunanRenk,DonusenRenk;
+            Color OkunanRenk, DonusenRenk;
             Bitmap GirisResmi, CikisResmi;
             int R = 0, G = 0, B = 0;
 
@@ -724,7 +724,7 @@ namespace Goruntu_Isleme
                     // Renk kanallarının ortalamasını alıyor
                     R = R / (KucultmeKatSayisi * KucultmeKatSayisi);
                     G = G / (KucultmeKatSayisi * KucultmeKatSayisi);
-                    B =B / (KucultmeKatSayisi * KucultmeKatSayisi);
+                    B = B / (KucultmeKatSayisi * KucultmeKatSayisi);
 
                     DonusenRenk = Color.FromArgb(R, G, B);
                     CikisResmi.SetPixel(x2, y2, DonusenRenk);
@@ -734,6 +734,137 @@ namespace Goruntu_Isleme
             }
             pictureBox2.Image = CikisResmi;
             return CikisResmi;
+        }
+
+        /// <summary>
+        /// Döndürme işlemi bir nokta etrafında belli bir açı (θ) değerinde çevirerek giriş resmindeki 
+        /// (x1,y1) koordinatını çıkış resmindeki (x2,y2) noktasına taşıma işlemidir
+        /// </summary>
+        /// <returns></returns>
+        public Bitmap Dondurme()
+        {
+            Color OkunanRenk;
+            Bitmap GirisResmi, CikisResmi;
+            GirisResmi = new Bitmap(pictureBox1.Image);
+
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+
+            int Aci = int.Parse(tDAci.Text);
+            double RadyanAci = Aci * 2 * Math.PI / 360;
+
+            double x2 = 0, y2 = 0;
+
+            //Resim merkezini buluyor. Merkez etrafında döndürecek
+            int x0 = ResimGenisligi / 2;
+            int y0 = ResimYuksekligi / 2;
+
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+
+                    //Döndürme Formülü
+                    x2 = Math.Cos(RadyanAci) * (x1 - x0) - Math.Sin(RadyanAci) * (y1 - y0) + x0;
+                    y2 = Math.Sin(RadyanAci) * (x1 - x0) + Math.Cos(RadyanAci) * (y1 - y0) + y0;
+
+                    if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                        CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                }
+            }
+            pictureBox2.Image = CikisResmi;
+            return CikisResmi;
+        }
+        public Bitmap Dondurme_Alias()
+        {
+            Color OkunanRenk;
+            Bitmap GirisResmi, CikisResmi;
+            GirisResmi = new Bitmap(pictureBox1.Image);
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int Aci = int.Parse(tDAci.Text);
+            double RadyanAci = Aci * 2 * Math.PI / 360;
+            double x2 = 0, y2 = 0;
+            //Resim merkezini buluyor. Resim merkezi etrafında döndürecek.
+            int x0 = ResimGenisligi / 2;
+            int y0 = ResimYuksekligi / 2;
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                    //Aliaslı Döndürme -Sağa Kaydırma
+                    x2 = (x1 - x0) - Math.Tan(RadyanAci / 2) * (y1 - y0) + x0;
+                    y2 = (y1 - y0) + y0;
+                    x2 = Convert.ToInt32(x2);
+                    y2 = Convert.ToInt32(y2);
+                    //Aliaslı Döndürme -Aşağı kaydırma
+                    x2 = (x2 - x0) + x0;
+                    y2 = Math.Sin(RadyanAci) * (x2 - x0) + (y2 - y0) + y0;
+                    x2 = Convert.ToInt32(x2);
+                    y2 = Convert.ToInt32(y2);
+                    //Aliaslı Döndürme -Sağa Kaydırma
+                    x2 = (x2 - x0) - Math.Tan(RadyanAci / 2) * (y2 - y0) + x0;
+                    y2 = (y2 - y0) + y0;
+                    x2 = Convert.ToInt32(x2);
+                    y2 = Convert.ToInt32(y2);
+                    if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                        CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                }
+            }
+            pictureBox2.Image = CikisResmi;
+            return CikisResmi;
+        }
+
+        public double[,] MatrisTersiniAl(double[,] GirisMatrisi)
+        {
+            //Matris boyutu içindeki eleman sayısı olduğu için kare matristde karekökü matris boyutu olur
+            int MatrisBoyutu = Convert.ToInt16(Math.Sqrt(GirisMatrisi.Length));
+            //A nın tersi alındığında bu matris içinde tutulacak
+            double[,] CikisMatrisi = new double[MatrisBoyutu, MatrisBoyutu];
+
+            //--| Birim matrisin içeriğini dolduruyor
+            for (int i = 0; i < MatrisBoyutu; i++)
+            {
+                for (int j = 0; j < MatrisBoyutu; j++)
+                {
+                    if (i == j) CikisMatrisi[i, j] = 1;
+                    else CikisMatrisi[i, j] = 0;
+                }
+            }
+
+            //--|Matris Tersini Alma İşlemi
+            double d, k;
+            for (int i = 0; i < MatrisBoyutu; i++)
+            {
+                d = GirisMatrisi[i, i];
+                for (int j = 0; j < MatrisBoyutu; j++)
+                {
+                    if (d == 0)
+                    {
+                        d = 0.0001; // 0 bölme hatasının çözümü
+                    }
+                    GirisMatrisi[i, j] = GirisMatrisi[i, j] / d;
+                    CikisMatrisi[i, j] = CikisMatrisi[i, j] / d;
+                }
+                for (int x = 0; x < MatrisBoyutu; x++)
+                {
+                    if (x!=i)
+                    {
+                        k = GirisMatrisi[x, i];
+                        for (int j = 0; j < MatrisBoyutu; j++)
+                        {
+                            GirisMatrisi[x, j] = GirisMatrisi[x, j] - GirisMatrisi[i, j] * k;
+                            CikisMatrisi[x, j] = CikisMatrisi[x, j] - CikisMatrisi[i, j] * k;
+                        }
+                    }
+                }
+            }
+            return CikisMatrisi;
         }
         private void BParlaklik_Click(object sender, EventArgs e)
         {
@@ -851,9 +982,8 @@ namespace Goruntu_Isleme
                 //Dikey kırmızı çizgiler.
 
             }
-            TxtHistogram.Text = "Maks.Piks=" + RenkMaksPixelSayisi.ToString();
+            TxtHistogram.Text = "Maks.Piks= " + RenkMaksPixelSayisi.ToString();
         }
-
         private void BKontras_Click(object sender, EventArgs e)
         {
             Color OkunanRenk, DonusenRenk;
@@ -892,19 +1022,18 @@ namespace Goruntu_Isleme
             pictureBox2.Refresh();
             pictureBox2.Image = null;
             pictureBox2.Image = CikisResmi;
-        }
 
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null) { Tasima(); } else { MessageBox.Show("Resim 1 Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
 
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (tAynalama.Text != "" && pictureBox1.Image != null) { Aynalama(); } else { MessageBox.Show("Resim 1 ve Aynalama Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
-
         private void BEgKaydir_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null) { Egme_Kaydirma(); } else { MessageBox.Show("Resim 1 Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
@@ -918,6 +1047,26 @@ namespace Goruntu_Isleme
         private void bKucultmeInterpolasyon_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null) { Kucultme_Interpolasyon(); } else { MessageBox.Show("Resim 1 Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+        }
+        private void bDondur_Click(object sender, EventArgs e)
+        {
+            if (tDAci.Text != "" && pictureBox1.Image != null) { Dondurme(); } else { MessageBox.Show("Resim 1 ve Aynalama Değeri Boş olmamalı", "Eksik Bilgi !", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
+        }
+        private void bAliasDondur_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (pictureBox1.Image != null) Dondurme_Alias();
+            }
+            catch
+            {
+            }
+        }
+
+        private void bPerspektif_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void BSifirla_Click(object sender, EventArgs e)
