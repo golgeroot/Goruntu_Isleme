@@ -820,6 +820,43 @@ namespace Goruntu_Isleme
             return CikisResmi;
         }
 
+        public Bitmap meanFiltresi()
+        {
+            Color OkunanRenk;
+            Bitmap GirisResmi, CikisResmi;
+            GirisResmi = new Bitmap(pictureBox1.Image);
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int SablonBoyutu = Convert.ToInt32(tSablon.Text); //şablon boyutu 3 den büyük tek rakam 
+                                                              //     olmalıdır(3, 5, 7 gibi).
+            int x, y, i, j, toplamR, toplamG, toplamB, ortalamaR, ortalamaG, ortalamaB;
+            for (x = (SablonBoyutu - 1) / 2; x < ResimGenisligi - (SablonBoyutu - 1) / 2; x++)
+            {
+                for (y = (SablonBoyutu - 1) / 2; y < ResimYuksekligi - (SablonBoyutu - 1) / 2; y++)
+                {
+                    toplamR = 0;
+                    toplamG = 0;
+                    toplamB = 0;
+                    for (i = -((SablonBoyutu - 1) / 2); i <= (SablonBoyutu - 1) / 2; i++)
+                    {
+                        for (j = -((SablonBoyutu - 1) / 2); j <= (SablonBoyutu - 1) / 2; j++)
+                        {
+                            OkunanRenk = GirisResmi.GetPixel(x + i, y + j);
+                            toplamR = toplamR + OkunanRenk.R;
+                            toplamG = toplamG + OkunanRenk.G;
+                            toplamB = toplamB + OkunanRenk.B;
+                        }
+                    }
+                    ortalamaR = toplamR / (SablonBoyutu * SablonBoyutu);
+                    ortalamaG = toplamG / (SablonBoyutu * SablonBoyutu);
+                    ortalamaB = toplamB / (SablonBoyutu * SablonBoyutu);
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(ortalamaR, ortalamaG, ortalamaB));
+                }
+            }
+            pictureBox2.Image = CikisResmi;
+            return CikisResmi;
+        }
         public double[,] MatrisTersiniAl(double[,] GirisMatrisi)
         {
             //Matris boyutu içindeki eleman sayısı olduğu için kare matristde karekökü matris boyutu olur
@@ -1163,18 +1200,18 @@ namespace Goruntu_Isleme
             //----------------------------------- A Dönüşüm Matrisi (3x3) -----------------
             double a00 = 0, a01 = 0, a02 = 0, a10 = 0, a11 = 0, a12 = 0, a20 = 0, a21 = 0, a22 = 0;
             a00 = matrisBTersi[0, 0] * X1 + matrisBTersi[0, 1] * Y1 + matrisBTersi[0, 2] *
-X2 + matrisBTersi[0, 3] * Y2 + matrisBTersi[0, 4] * X3 + matrisBTersi[0, 5] * Y3 +
-matrisBTersi[0, 6] * X4 + matrisBTersi[0, 7] * Y4;
+                X2 + matrisBTersi[0, 3] * Y2 + matrisBTersi[0, 4] * X3 + matrisBTersi[0, 5] * Y3 +
+                matrisBTersi[0, 6] * X4 + matrisBTersi[0, 7] * Y4;
             a01 = matrisBTersi[1, 0] * X1 + matrisBTersi[1, 1] * Y1 + matrisBTersi[1, 2] *
-X2 + matrisBTersi[1, 3] * Y2 + matrisBTersi[1, 4] * X3 + matrisBTersi[1, 5] * Y3 +
-matrisBTersi[1, 6] * X4 + matrisBTersi[1, 7] * Y4;
+        X2 + matrisBTersi[1, 3] * Y2 + matrisBTersi[1, 4] * X3 + matrisBTersi[1, 5] * Y3 +
+        matrisBTersi[1, 6] * X4 + matrisBTersi[1, 7] * Y4;
             a02 = matrisBTersi[2, 0] * X1 + matrisBTersi[2, 1] * Y1 + matrisBTersi[2, 2] *
-X2 + matrisBTersi[2, 3] * Y2 + matrisBTersi[2, 4] * X3 + matrisBTersi[2, 5] * Y3 +
-matrisBTersi[2, 6] * X4 + matrisBTersi[2, 7] * Y4;
+        X2 + matrisBTersi[2, 3] * Y2 + matrisBTersi[2, 4] * X3 + matrisBTersi[2, 5] * Y3 +
+        matrisBTersi[2, 6] * X4 + matrisBTersi[2, 7] * Y4;
 
             a10 = matrisBTersi[3, 0] * X1 + matrisBTersi[3, 1] * Y1 + matrisBTersi[3, 2] *
-X2 + matrisBTersi[3, 3] * Y2 + matrisBTersi[3, 4] * X3 + matrisBTersi[3, 5] * Y3 +
-matrisBTersi[3, 6] * X4 + matrisBTersi[3, 7] * Y4;
+            X2 + matrisBTersi[3, 3] * Y2 + matrisBTersi[3, 4] * X3 + matrisBTersi[3, 5] * Y3 +
+            matrisBTersi[3, 6] * X4 + matrisBTersi[3, 7] * Y4;
             a11 = matrisBTersi[4, 0] * X1 + matrisBTersi[4, 1] * Y1 + matrisBTersi[4, 2] *
            X2 + matrisBTersi[4, 3] * Y2 + matrisBTersi[4, 4] * X3 + matrisBTersi[4, 5] * Y3 +
            matrisBTersi[4, 6] * X4 + matrisBTersi[4, 7] * Y4;
@@ -1186,11 +1223,10 @@ matrisBTersi[3, 6] * X4 + matrisBTersi[3, 7] * Y4;
            matrisBTersi[6, 6] * X4 + matrisBTersi[6, 7] * Y4;
 
             a21 = matrisBTersi[7, 0] * X1 + matrisBTersi[7, 1] * Y1 + matrisBTersi[7, 2] *
-X2 + matrisBTersi[7, 3] * Y2 + matrisBTersi[7, 4] * X3 + matrisBTersi[7, 5] * Y3 +
-matrisBTersi[7, 6] * X4 + matrisBTersi[7, 7] * Y4;
+            X2 + matrisBTersi[7, 3] * Y2 + matrisBTersi[7, 4] * X3 + matrisBTersi[7, 5] * Y3 +
+            matrisBTersi[7, 6] * X4 + matrisBTersi[7, 7] * Y4;
             a22 = 1;
             //------------------------- Perspektif düzeltme işlemi ------------------------
-
             PerspektifDuzelt(a00, a01, a02, a10, a11, a12, a20, a21, a22);
         }
 
@@ -1222,6 +1258,13 @@ matrisBTersi[7, 6] * X4 + matrisBTersi[7, 7] * Y4;
             pictureBox2.Image = CikisResmi;
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null && tSablon.Text == "3" || tSablon.Text == "5" || tSablon.Text == "7") { meanFiltresi(); }
+            else { MessageBox.Show("Geçersiz rakam"); }
+        }
+
         private void BSifirla_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = null;
