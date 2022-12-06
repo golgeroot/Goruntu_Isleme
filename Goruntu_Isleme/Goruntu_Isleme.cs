@@ -862,8 +862,6 @@ namespace Goruntu_Isleme
             }
             pictureBox2.Image = CikisResmi;
         }
-
-
         public void medianFiltresi()
         {
             Color OkunanRenk;
@@ -935,6 +933,54 @@ namespace Goruntu_Isleme
             }
             pictureBox2.Image = CikisResmi;
 
+        }
+
+        public void gaussFiltresi()
+        {
+            Color OkunanRenk;
+            Bitmap GirisResmi, CikisResmi;
+            GirisResmi = new Bitmap(pictureBox1.Image);
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int SablonBoyutu = 5; //Çekirdek matrisin boyutu
+            int ElemanSayisi = SablonBoyutu * SablonBoyutu;
+            int x, y, i, j, toplamR, toplamG, toplamB, ortalamaR, ortalamaG, ortalamaB;
+            int[] Matris = { 1, 4, 7, 4, 1, 4, 20, 33, 20, 4, 7, 33, 55, 33, 7, 4, 20, 33, 20, 4, 1, 4, 7, 4, 1 };
+            int MatrisToplami = 1 + 4 + 7 + 4 + 1 + 4 + 20 + 33 + 20 + 4 + 7 + 33 + 55 + 33 + 7 + 4 + 20 +
+           33 + 20 + 4 + 1 + 4 + 7 + 4 + 1;
+            /*int[] Matris = { 1, 2, 4, 2, 1, 2, 6, 9, 6, 2, 4, 9, 16, 9, 4, 2, 6, 9, 6, 2, 1,
+            2, 4, 2, 1 };
+             int MatrisToplami = 1 + 2 + 4 + 2 + 1 + 2 + 6 + 9 + 6 + 2 + 4 + 9 + 16 + 9 + 4 + 2
+            + 6 + 9 + 6 + 2 + 1 + 2 + 4 + 2 + 1;*/
+            for (x = (SablonBoyutu - 1) / 2; x < ResimGenisligi - (SablonBoyutu - 1) / 2; x++)
+            //Resmi   taramaya şablonun yarısı kadar dış kenarlardan içeride başlayacak ve bitirecek.
+            {
+                for (y = (SablonBoyutu - 1) / 2; y < ResimYuksekligi - (SablonBoyutu - 1) / 2; y++)
+                {
+                    toplamR = 0;
+                    toplamG = 0;
+                    toplamB = 0;
+                    //Şablon bölgesi (çekirdek matris) içindeki pikselleri tarıyor.
+                    int k = 0; //matris içindeki elemanları sırayla okurken kullanılacak.
+                    for (i = -((SablonBoyutu - 1) / 2); i <= (SablonBoyutu - 1) / 2; i++)
+                    {
+                        for (j = -((SablonBoyutu - 1) / 2); j <= (SablonBoyutu - 1) / 2; j++)
+                        {
+                            OkunanRenk = GirisResmi.GetPixel(x + i, y + j);
+                            toplamR = toplamR + OkunanRenk.R * Matris[k];
+                            toplamG = toplamG + OkunanRenk.G * Matris[k];
+                            toplamB = toplamB + OkunanRenk.B * Matris[k];
+                            k++;
+                        }
+                    }
+                    ortalamaR = toplamR / MatrisToplami;
+                    ortalamaG = toplamG / MatrisToplami;
+                    ortalamaB = toplamB / MatrisToplami;
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(ortalamaR, ortalamaG, ortalamaB));
+                }
+            }
+            pictureBox2.Image = CikisResmi;
         }
         public double[,] MatrisTersiniAl(double[,] GirisMatrisi)
         {
@@ -1345,8 +1391,14 @@ namespace Goruntu_Isleme
 
         private void bMedian_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)  { medianFiltresi(); }
-            else { MessageBox.Show("Geçersiz rakam"); }
+            if (pictureBox1.Image != null) { medianFiltresi(); }
+            else { MessageBox.Show("Geçersiz resim"); }
+        }
+
+        private void bGaus_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null) { gaussFiltresi(); }
+            else { MessageBox.Show("Geçersiz resim"); }
         }
 
         private void BSifirla_Click(object sender, EventArgs e)

@@ -132,6 +132,7 @@
             this.bMedian = new System.Windows.Forms.Button();
             this.tSablonBoyutu = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
+            this.bGaus = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -222,9 +223,9 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(411, 250);
+            this.pictureBox2.Location = new System.Drawing.Point(525, 244);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(400, 290);
+            this.pictureBox2.Size = new System.Drawing.Size(461, 386);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -233,7 +234,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(10, 247);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(395, 290);
+            this.pictureBox1.Size = new System.Drawing.Size(456, 386);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -1142,6 +1143,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.bGaus);
             this.panel6.Controls.Add(this.label30);
             this.panel6.Controls.Add(this.tSablonBoyutu);
             this.panel6.Controls.Add(this.bMedian);
@@ -1150,13 +1152,13 @@
             this.panel6.Controls.Add(this.button1);
             this.panel6.Location = new System.Drawing.Point(1086, 52);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(231, 192);
+            this.panel6.Size = new System.Drawing.Size(106, 192);
             this.panel6.TabIndex = 45;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(127, 7);
+            this.label29.Location = new System.Drawing.Point(5, 9);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(40, 26);
@@ -1165,7 +1167,7 @@
             // 
             // tSablon
             // 
-            this.tSablon.Location = new System.Drawing.Point(169, 12);
+            this.tSablon.Location = new System.Drawing.Point(47, 14);
             this.tSablon.Margin = new System.Windows.Forms.Padding(2);
             this.tSablon.Name = "tSablon";
             this.tSablon.Size = new System.Drawing.Size(50, 20);
@@ -1173,10 +1175,10 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Turquoise;
-            this.button1.Location = new System.Drawing.Point(3, 11);
+            this.button1.BackColor = System.Drawing.Color.LightBlue;
+            this.button1.Location = new System.Drawing.Point(3, 37);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
+            this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 43;
             this.button1.Text = "Mean Filtresi";
             this.button1.UseVisualStyleBackColor = false;
@@ -1184,10 +1186,10 @@
             // 
             // bMedian
             // 
-            this.bMedian.BackColor = System.Drawing.Color.Turquoise;
-            this.bMedian.Location = new System.Drawing.Point(3, 36);
+            this.bMedian.BackColor = System.Drawing.Color.LightBlue;
+            this.bMedian.Location = new System.Drawing.Point(3, 85);
             this.bMedian.Name = "bMedian";
-            this.bMedian.Size = new System.Drawing.Size(119, 23);
+            this.bMedian.Size = new System.Drawing.Size(94, 23);
             this.bMedian.TabIndex = 46;
             this.bMedian.Text = "Median Filtresi";
             this.bMedian.UseVisualStyleBackColor = false;
@@ -1195,7 +1197,7 @@
             // 
             // tSablonBoyutu
             // 
-            this.tSablonBoyutu.Location = new System.Drawing.Point(169, 35);
+            this.tSablonBoyutu.Location = new System.Drawing.Point(47, 63);
             this.tSablonBoyutu.Margin = new System.Windows.Forms.Padding(2);
             this.tSablonBoyutu.Name = "tSablonBoyutu";
             this.tSablonBoyutu.Size = new System.Drawing.Size(50, 20);
@@ -1204,18 +1206,29 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(125, 40);
+            this.label30.Location = new System.Drawing.Point(3, 68);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(40, 13);
             this.label30.TabIndex = 48;
             this.label30.Text = "Şablon\r\n";
             // 
+            // bGaus
+            // 
+            this.bGaus.BackColor = System.Drawing.Color.LightBlue;
+            this.bGaus.Location = new System.Drawing.Point(3, 110);
+            this.bGaus.Name = "bGaus";
+            this.bGaus.Size = new System.Drawing.Size(94, 23);
+            this.bGaus.TabIndex = 49;
+            this.bGaus.Text = "Gauss Filtresi";
+            this.bGaus.UseVisualStyleBackColor = false;
+            this.bGaus.Click += new System.EventHandler(this.bGaus_Click);
+            // 
             // Goruntu_Isleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 545);
+            this.ClientSize = new System.Drawing.Size(1353, 645);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -1361,6 +1374,7 @@
         private System.Windows.Forms.Button bMedian;
         private System.Windows.Forms.TextBox tSablonBoyutu;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button bGaus;
     }
 }
 
