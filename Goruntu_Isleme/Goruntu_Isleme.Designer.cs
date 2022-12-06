@@ -129,6 +129,9 @@
             this.label29 = new System.Windows.Forms.Label();
             this.tSablon = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.bMedian = new System.Windows.Forms.Button();
+            this.tSablonBoyutu = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1139,6 +1142,9 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label30);
+            this.panel6.Controls.Add(this.tSablonBoyutu);
+            this.panel6.Controls.Add(this.bMedian);
             this.panel6.Controls.Add(this.label29);
             this.panel6.Controls.Add(this.tSablon);
             this.panel6.Controls.Add(this.button1);
@@ -1170,11 +1176,40 @@
             this.button1.BackColor = System.Drawing.Color.Turquoise;
             this.button1.Location = new System.Drawing.Point(3, 11);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 23);
+            this.button1.Size = new System.Drawing.Size(119, 23);
             this.button1.TabIndex = 43;
-            this.button1.Text = "Aynalama";
+            this.button1.Text = "Mean Filtresi";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // bMedian
+            // 
+            this.bMedian.BackColor = System.Drawing.Color.Turquoise;
+            this.bMedian.Location = new System.Drawing.Point(3, 36);
+            this.bMedian.Name = "bMedian";
+            this.bMedian.Size = new System.Drawing.Size(119, 23);
+            this.bMedian.TabIndex = 46;
+            this.bMedian.Text = "Median Filtresi";
+            this.bMedian.UseVisualStyleBackColor = false;
+            this.bMedian.Click += new System.EventHandler(this.bMedian_Click);
+            // 
+            // tSablonBoyutu
+            // 
+            this.tSablonBoyutu.Location = new System.Drawing.Point(169, 35);
+            this.tSablonBoyutu.Margin = new System.Windows.Forms.Padding(2);
+            this.tSablonBoyutu.Name = "tSablonBoyutu";
+            this.tSablonBoyutu.Size = new System.Drawing.Size(50, 20);
+            this.tSablonBoyutu.TabIndex = 47;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(125, 40);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(40, 13);
+            this.label30.TabIndex = 48;
+            this.label30.Text = "Şablon\r\n";
             // 
             // Goruntu_Isleme
             // 
@@ -1323,6 +1358,9 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox tSablon;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bMedian;
+        private System.Windows.Forms.TextBox tSablonBoyutu;
+        private System.Windows.Forms.Label label30;
     }
 }
 
